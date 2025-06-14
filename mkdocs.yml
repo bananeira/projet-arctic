@@ -6,6 +6,8 @@ theme:
     code: Courier New
   icon:
     admonition:
+  features:
+    - content.footnote.tooltips
   palette:
     - scheme: default
       primary: indigo
@@ -22,9 +24,17 @@ theme:
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - footnotes
 extra_javascript:
   - assets/javascripts/mathjax.js
   - assets/javascripts/char-replacement.js

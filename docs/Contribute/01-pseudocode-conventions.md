@@ -30,7 +30,7 @@ do <instructions>
 while <condition>
 ```
 - `//` initiates a comment
-- Value assertion: Variables are assigned values with the operator `<-` and `=` is meant for comparing two expressions.
+- Value assertion: Variables are assigned values with the operator `<_` and `=` is meant for comparing two expressions.
 - All variables are defined locally, except it's stated otherwise.
 - Field/set elements are indexed by square brackets and subfields/subsets by index ranges.
 ```
