@@ -8,6 +8,8 @@ theme:
     admonition:
   features:
     - content.footnote.tooltips
+    - content.code.copy
+    - content.code.annotate
   palette:
     - scheme: default
       primary: indigo

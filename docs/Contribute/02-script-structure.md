@@ -118,26 +118,32 @@ For instance, if you want to create a flowchart, you can use the following code:
 
 ```
 graph LR
-  A[Start] --> B{Error?};
+  start:::hidden --> A((start))
+  A --> B{Error?};
   B -->|Yes| C[Hmm...];
   C --> D(Debug);
   D --> C;
   D --> B;
   B ---->|No| E[Yay!];
   E --> F(((End)));
+  
+  classDef hidden display: none;
 ```
 
 yielding the following diagram:
 
 ``` mermaid
-    graph LR
-        A[Start] --> B{Error?};
-        B -->|Yes| C[Hmm...];
-        C --> D(Debug);
-        D --> C;
-        D --> B;
-        B ---->|No| E[Yay!];
-        E --> F(((End)));
+graph LR
+  start:::hidden --> A((start))
+  A --> B{Error?};
+  B -->|Yes| C[Hmm...];
+  C --> D(Debug);
+  D --> C;
+  D --> B;
+  B ---->|No| E[Yay!];
+  E --> F(((End)));
+  
+  classDef hidden display: none;
 ```
 
 ## Special markdown features
