@@ -138,11 +138,11 @@ To build this intuition, we will consider a more technical example.
 
 Consider the following algorithm, where `A` is an input array with `A[i]; i \in \NN, A[i] \in \NN`.
 ```
-    AVERAGE( A )
-        result <_ 0
-        for i <_ 1 to A.length do
-            result <_ ((i-1) \cdot result + A[i]) / i
-        return result
+AVERAGE( A )
+    result <_ 0
+    for i <_ 1 to A.length do
+        result <_ ((i-1) \cdot result + A[i]) / i
+    return result
 ```
 
 Generally, when you're given an algorithm and need to find out what it's doing, it helps to manually run a few instances through the algorithm.
@@ -170,7 +170,7 @@ In any given iteration, $i \in \NN$, `result` reflects the average of the subfie
         \mathtt{result'} := ((i-1) \cdot \mathtt{result} + A_i)/i = (0 \cdot \mathtt{result}) = A_i = \operatorname{avg}\{A_i\}
     \]
 
-    **Iteration**: Let $\operatorname{avg}\{A_{1..i}\}$ be the average of an arbitrary subfield $A_1..i$ and $\operatorname{avg}\{A_{1..i}\} = \mathtt{result}$.
+    **Iteration**: Let $\operatorname{avg}\{A_{1..i}\}$ be the average of an arbitrary subfield $A_{1..i}$ and $\operatorname{avg}\{A_{1..i}\} = \mathtt{result}$.
     Now, let $\operatorname{avg}\{A_{1..i} \cup \{n\}\}$ be the average of a subfield $A_{1..i} \cup \{n\}$ and $\mathtt{result'}$ the result of the $(i+1)$-th `for`-iteration.
     We want to show that $\mathtt{result'} = \operatorname{avg}\{A_{1..i} \cup \{n\}\}$.
     
@@ -184,3 +184,4 @@ In any given iteration, $i \in \NN$, `result` reflects the average of the subfie
     Thus, the algorithm achieves the desired (iterative calculation of the average of all elements in an array).
 
 If you have understood what is happening here, you're doing very well.
+Don't be afraid to spend some more minutes in understanding this concept, as it's a crucial tool for later in this script (and in probably any exam you will be writing about this topic).
