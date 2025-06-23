@@ -75,7 +75,7 @@ HELLO-WORLD( n \in \NN )
 ```
 
 On the first look, we can see what the code does.
-But if we introduce loops, like the `COUNT-PRIME-FACTOR` function does, the complexity and straightforwardness can vanish quickly.
+But if we introduce loops, like the `COUNT-PRIME-FACTOR` function does, the straightforwardness can vanish quickly.
 
 Therefore, we need some references and tools to see through the calculations that the algorithm does, so that we will have well-founded arguments for the correctness in each layer of the code.
 
