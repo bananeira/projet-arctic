@@ -184,3 +184,4 @@ In any given iteration, $i \in \NN$, `result` reflects the average of the subfie
     Thus, the algorithm achieves the desired (iterative calculation of the average of all elements in an array).
 
 If you have understood what is happening here, you're doing very well.
+Don't be afraid to spend some more minutes in understanding this concept, as it's a crucial tool for later in this script (and in probably any exam you will be writing about this topic).
