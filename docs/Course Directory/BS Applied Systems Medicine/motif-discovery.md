@@ -45,6 +45,7 @@ But:
 
 So this is bad.
 
+---
 
 | Author(s)                | Latest change |
 |:-------------------------|:--------------|

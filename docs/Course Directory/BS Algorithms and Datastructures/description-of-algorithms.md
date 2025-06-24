@@ -346,6 +346,8 @@ T_\texttt{COUNT-PRIME-FACTORS}(n) = c_0 + \sum_{i=0}^{\sqrt{n}-1} T_\texttt{whil
 
 making a huge difference in the asymptotical behaviour of this algorithm --- as we're going to see later.
 
+---
+
 | Author(s)                | Latest change |
 |:-------------------------|:--------------|
 | [Jamil Osoria Peralta]() | 2025-06-24    |
