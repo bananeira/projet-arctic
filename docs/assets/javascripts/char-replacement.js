@@ -45,5 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .replace(/\\RR/g, 'ℝ')
             .replace(/\\CC/g, 'ℂ')
             .replace(/\\ell/g, 'ℓ')
+            .replace(/\\cdot/g, '·')
     });
 });
