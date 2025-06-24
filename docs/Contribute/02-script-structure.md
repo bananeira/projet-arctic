@@ -181,42 +181,41 @@ To make your writing cleaner and more readable, we've prepared a number of autom
 
 This means you don’t have to remember how to write symbols like “not equal” (≠) — just type `!=`, and it will be replaced automatically.
 
-|     Input | Replacement | Example                      |
-|----------:|:------------|:-----------------------------|
-|      `!=` | ≠           | `a != b` → _a ≠ b_           |
-| `<` + `=` | ≤           | `x <` + `= y` → _x ≤ y_      |
-| `>` + `=` | ≥           | `n >` + `= 0` → _n ≥ 0_      |
-| `<` + `_` | ←           | `x <` + `_ y` → _x ← y_      |
-| `_` + `>` | →           | `f _` + `> g` → _f → g_      |
-|      `--` | –           | En dash: `A -- B` → _A – B_  |
-|     `---` | —           | Em dash: `A --- B` → _A — B_ |
-|     `...` | …           | `1, 2, 3...` → _1, 2, 3…_    |
+|           Input | Replacement | Example                                                  |
+|----------------:|:------------|:---------------------------------------------------------|
+|       `!` + `=` | ≠           | `a` + `!` + `=` + `b` → _a ≠ b_                          |
+|       `<` + `=` | ≤           | `x <` + `= y` → _x ≤ y_                                  |
+|       `>` + `=` | ≥           | `n >` + `= 0` → _n ≥ 0_                                  |
+|       `<` + `_` | ←           | `x <` + `_ y` → _x ← y_                                  |
+|       `_` + `>` | →           | `f _` + `> g` → _f → g_                                  |
+|            `--` | –           | En dash: `A -- B` → _A – B_ (requiring wrapping spaces)  |
+|           `---` | —           | Em dash: `A --- B` → _A — B_ (requiring wrapping spaces) |
+| `.` + `.` + `.` | …           | `1, 2, 3` + `.` + `.` + `.` → _1, 2, 3…_                 |
 
 You can also use $\LaTeX$-style commands -- they’ll be automatically replaced with the appropriate symbols:
 
 |       Input | Symbol | Meaning                |
 |------------:|:-------|:-----------------------|
-|       `\in` | ∈      | “is an element of”     |
-|    `\notin` | ∉      | “is not an element of” |
-|   `\subset` | ⊂      | proper subset          |
-| `\subseteq` | ⊆      | proper subset          |
-|   `\supset` | ⊃       | proper subset          |
-| `\supseteq` | ⊇      | proper subset          |
-| `\emptyset` | ∅      | empty set              |
-|      `\cup` | ∪      | union                  |
-|      `\cap` | ∩      | intersection           |
-|    `\times` | ×      | multiplication sign    |
-|      `\div` | ÷      | division sign          |
-|   `\propto` | ∝      | proportional to        |
-|    `\infty` | ∞      | infinity               |
-|   `\forall` | ∀      | for all                |
-|   `\exists` | ∃      | there exists           |
-|      `\neg` | ¬      | logical not            |
-|     `\land` | ∧      | logical and            |
-|      `\lor` | ∨      | logical or             |
-|  `\implies` | ⇒      | implies                |
-|      `\iff` | ⇔      | if and only if         |
-|     `\circ` | ∘      | circ symbol            |
+|       `＼in` | ∈      | “is an element of”     |
+|    `＼notin` | ∉      | “is not an element of” |
+|   `＼subset` | ⊂      | proper subset          |
+| `＼subseteq` | ⊆      | proper subset          |
+|   `＼supset` | ⊃       | proper subset          |
+| `＼supseteq` | ⊇      | proper subset          |
+| `＼emptyset` | ∅      | empty set              |
+|      `＼cup` | ∪      | union                  |
+|      `＼cap` | ∩      | intersection           |
+|    `＼times` | ×      | multiplication sign    |
+|   `＼propto` | ∝      | proportional to        |
+|    `＼infty` | ∞      | infinity               |
+|   `＼forall` | ∀      | for all                |
+|   `＼exists` | ∃      | there exists           |
+|      `＼neg` | ¬      | logical not            |
+|     `＼land` | ∧      | logical and            |
+|      `＼lor` | ∨      | logical or             |
+|  `＼implies` | ⇒      | implies                |
+|      `＼iff` | ⇔      | if and only if         |
+|     `＼circ` | ∘      | circ symbol            |
 
 ... and a few more.
 Again, this is not for exhaustive usage, but rather for short convenience and especially **for pseudocode**.

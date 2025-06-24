@@ -7,7 +7,7 @@ To ensure consistency across all pages, we will need to clarify the following po
 - **Scientific conventions**: Since we can't enforce coherent use of notation throughout all documents, please always introduce non-trivial notation conventions in your document -- either prior to the usage or as a foot note.
 - **Code snippets**: Highlight code properly using fenced code blocks with language identifiers for syntax highlighting or preferably use pseudocode according to our [pseudo code conventions](01-pseudocode-conventions.md).
 - **Markdown and $\LaTeX$ Convention**: For each sentence, use one line in the code.
-Visual linebreaks are achievable through a double space `  ` at the end of your sentence or an empty line.
+Visual linebreaks are achievable through a double space at the end of your sentence or an empty line.
 - **Citations and references**: Use **a** standard format for referencing external sources or resources.
 - **Images and diagrams**: Use descriptive captions and ensure all visuals are clear and properly referenced.
 Only use images if necessary, otherwise resort to `mermaid` or other compatible diagram tools to keep a uniform and global styling.
