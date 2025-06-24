@@ -181,16 +181,16 @@ To make your writing cleaner and more readable, we've prepared a number of autom
 
 This means you don’t have to remember how to write symbols like “not equal” (≠) — just type `!=`, and it will be replaced automatically.
 
-|           Input | Replacement | Example                                                  |
-|----------------:|:------------|:---------------------------------------------------------|
-|       `!` + `=` | ≠           | `a` + `!` + `=` + `b` → _a ≠ b_                          |
-|       `<` + `=` | ≤           | `x <` + `= y` → _x ≤ y_                                  |
-|       `>` + `=` | ≥           | `n >` + `= 0` → _n ≥ 0_                                  |
-|       `<` + `_` | ←           | `x <` + `_ y` → _x ← y_                                  |
-|       `_` + `>` | →           | `f _` + `> g` → _f → g_                                  |
-|            `--` | –           | En dash: `A -- B` → _A – B_ (requiring wrapping spaces)  |
-|           `---` | —           | Em dash: `A --- B` → _A — B_ (requiring wrapping spaces) |
-| `.` + `.` + `.` | …           | `1, 2, 3` + `.` + `.` + `.` → _1, 2, 3…_                 |
+|           Input | Replacement | Example                                                                                          |
+|----------------:|:------------|:-------------------------------------------------------------------------------------------------|
+|       `!` + `=` | ≠           | `a` + `!` + `=` + `b` → _a ≠ b_                                                                  |
+|       `<` + `=` | ≤           | `x <` + `= y` → _x ≤ y_                                                                          |
+|       `>` + `=` | ≥           | `n >` + `= 0` → _n ≥ 0_                                                                          |
+|       `<` + `_` | ←           | `x <` + `_ y` → _x ← y_                                                                          |
+|       `_` + `>` | →           | `f _` + `> g` → _f → g_                                                                          |
+|            `--` | –           | En dash: `A -- B` → _A – B_ (requiring wrapping spaces, used for number ranges!)                 |
+|           `---` | —           | Em dash: `A --- B` → _A — B_ (requiring wrapping spaces, used as dash for inserting ideas etc.!) |
+| `.` + `.` + `.` | …           | `1, 2, 3` + `.` + `.` + `.` → _1, 2, 3…_                                                         |
 
 You can also use $\LaTeX$-style commands -- they’ll be automatically replaced with the appropriate symbols:
 
