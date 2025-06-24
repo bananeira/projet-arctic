@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .replace(/ --- /g, ' — ')
             .replace(/ -- /g, '–')
             .replace(/\.\.\./g, '…')
+            .replace(/\\epsilon/g, 'ε')
             .replace(/\\exists/g, '∃')
             .replace(/\\forall/g, '∀')
             .replace(/\\neg/g, '¬')
@@ -44,6 +45,5 @@ document.addEventListener("DOMContentLoaded", () => {
             .replace(/\\RR/g, 'ℝ')
             .replace(/\\CC/g, 'ℂ')
             .replace(/\\ell/g, 'ℓ')
-            .replace(/\\epsilon/g, 'ε')
     });
 });
