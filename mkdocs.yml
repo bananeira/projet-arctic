@@ -32,9 +32,6 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-        - name: plotly
-          class: mkdocs-plotly
-          format: !!python/name:mkdocs_plotly_plugin.fences.fence_plotly
   - admonition
   - pymdownx.details
   - pymdownx.caret
@@ -47,5 +44,3 @@ extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 extra_css:
   - assets/stylesheets/fonts.css
-plugins:
-  - plotly
