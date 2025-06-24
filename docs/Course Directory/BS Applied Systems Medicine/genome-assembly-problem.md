@@ -285,3 +285,8 @@ Bubbles can occur when you find some fragments of two or more genome sequences, 
     ```
 
     to which an algorithm detecting _Eulerian paths_ wouldn't report a result.
+
+
+| Author(s)                | Latest change |
+|:-------------------------|:--------------|
+| [Jamil Osoria Peralta]() | 2025-06-24    |

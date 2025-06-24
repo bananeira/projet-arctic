@@ -26,15 +26,14 @@ Firstly, we need to characterise the term algorithm and related terms.
 !!! note "Algorithm"
 
     An _algorithm_ means a sequence of predefined (elementary) instructions that solve a given problem.
-    
+
 !!! example "Example Algorithm for the Given Problem"
- 
+
     1. Start with the given number $n$.
     2. For each prime number $p$ smaller than $n$ do:
         1. While $n$ is divisible by the number $p$, divite it, count the divisions and update the result
     3. The number of divisions you have gathered by the end is the number we are looking for.
     4. Return this number.
-
 
 Let's now take a look at a more formal version of this algorithm --- in pseudocode.
 We use pseudocode to get closer to real programming without giving up all the advantages of natural language.
@@ -59,11 +58,13 @@ Especially when they're more complex.
 In this section, we will discover the fundamental aspects of analysing algorithms.
 
 Firstly, we need to prove that the algorithm we have just proposed yields the expected results **for any instance**.
-Then, to conclude the analysis, we will check the runtime, as this is a crucial factor to consider when deploying algorithms in practical use.
+Then, to conclude the analysis, we will check the runtime, as this is a crucial factor to consider when deploying
+algorithms in practical use.
 
 ### Correctness of an Algorithm
 
-Sometimes, straight forward approaches for simple problems can be directly evaluated and don't need a separate proof of correctness.
+Sometimes, straight forward approaches for simple problems can be directly evaluated and don't need a separate proof of
+correctness.
 Take, for example
 
 ```
@@ -77,7 +78,8 @@ HELLO-WORLD( n \in \NN )
 On the first look, we can see what the code does.
 But if we introduce loops, like the `COUNT-PRIME-FACTOR` function does, the straightforwardness can vanish quickly.
 
-Therefore, we need some references and tools to see through the calculations that the algorithm does, so that we will have well-founded arguments for the correctness in each layer of the code.
+Therefore, we need some references and tools to see through the calculations that the algorithm does, so that we will
+have well-founded arguments for the correctness in each layer of the code.
 
 !!! note "Loop invariant"
 
@@ -94,10 +96,11 @@ Therefore, we need some references and tools to see through the calculations tha
 
     This structure ensures that the invariant truly describes a property that is preserved throughout the execution of the loop and that, at the end, it implies the desired result.
 
-In the example of `COUNT-PRIME-FACTORS`, we will use two loop invariants --- one for the outer `for`-loop and one for the inner `while`-loop, since the algorithm is based on two nested loops, each of which must behave correctly.
+In the example of `COUNT-PRIME-FACTORS`, we will use two loop invariants --- one for the outer `for`-loop and one for
+the inner `while`-loop, since the algorithm is based on two nested loops, each of which must behave correctly.
 
 !!! warning "Remark"
-    
+
     Establishing initialisation and maintenance proves a **partial correctness** of the loop.
     Establishing termination proves the **total correctness**.
 
@@ -137,6 +140,7 @@ Admittedly, loop invariant proofs are not very comfortable to perform and requir
 To build this intuition, we will consider a more technical example.
 
 Consider the following algorithm, where `A` is an input array with `A[i]; i \in \NN, A[i] \in \NN`.
+
 ```
 AVERAGE( A )
     result <_ 0
@@ -145,7 +149,8 @@ AVERAGE( A )
     return result
 ```
 
-Generally, when you're given an algorithm and need to find out what it's doing, it helps to manually run a few instances through the algorithm.
+Generally, when you're given an algorithm and need to find out what it's doing, it helps to manually run a few instances
+through the algorithm.
 We've already found out what the algorithm does, but feel free to confirm this yourself.
 
 The algorithm calculates the average of all elements in an array of natural numbers.
@@ -184,16 +189,20 @@ In any given iteration, $i \in \NN$, `result` reflects the average of the subfie
     Thus, the algorithm achieves the desired (iterative calculation of the average of all elements in an array).
 
 If you have understood what is happening here, you're doing very well.
-Don't be afraid to spend some more minutes in understanding this concept, as it's a crucial tool for later in this script (and in probably any exam you will be writing about this topic).
+Don't be afraid to spend some more minutes in understanding this concept, as it's a crucial tool for later in this
+script (and in probably any exam you will be writing about this topic).
 
-In the meantime, you've probably asked yourself, "does this algorithm achieve an asymptotically optimal time complexity?"
+In the meantime, you've probably asked yourself, "does this algorithm achieve an asymptotically optimal time
+complexity?"
 
 So why don't we dive into the runtime analysis for algorithms to answer this question?
 
 ### Runtime Analysis
 
-For the time complexity analysis of an algorithm, we can't, of course, consider every possible combination of hardware components and neglect the effects of any other running processes.
-So let's firstly do some simplifications and build an _idealised computational model_ to unify our understanding of runtime.
+For the time complexity analysis of an algorithm, we can't, of course, consider every possible combination of hardware
+components and neglect the effects of any other running processes.
+So let's firstly do some simplifications and build an _idealised computational model_ to unify our understanding of
+runtime.
 
 !!! note "Idealised Computational Model"
 
@@ -209,7 +218,8 @@ So let's firstly do some simplifications and build an _idealised computational m
 
     Please make sure to never confuse `if`-statements with loops --- at least from now on.
 
-Now that we've built our idealised computational model, we can proceed to apply what we've learned from it to our algorithm `COUNT-PRIME-FACTORS`.
+Now that we've built our idealised computational model, we can proceed to apply what we've learned from it to our
+algorithm `COUNT-PRIME-FACTORS`.
 Bear with me for a moment, since this analysis will not be as trivial as it looks like --- but trivial enough.
 
 !!! note "_Worst-case runtime_ analysis of `COUNT-PRIME-FACTORS`"
@@ -231,7 +241,7 @@ COUNT-PRIME-FACTORS( n \in \NN )
 ```
 
 !!! success "Proof of the worst-case runtime of `COUNT-PRIME-FACTORS`, proposed above"
-    
+
     ```
     COUNT-PRIME-FACTORS( n \in \NN )
         \ell <_ 0
@@ -325,13 +335,17 @@ COUNT-PRIME-FACTORS_SQRT( n \in \NN )
 This is changing our runtime from
 
 \[
-    T_\texttt{COUNT-PRIME-FACTORS}(n) = c_0 + \sum_{i=0}^{n-1} T_\texttt{while}(n,p,i) + c_1 + c_2
+T_\texttt{COUNT-PRIME-FACTORS}(n) = c_0 + \sum_{i=0}^{n-1} T_\texttt{while}(n,p,i) + c_1 + c_2
 \]
 
 to
 
 \[
-    T_\texttt{COUNT-PRIME-FACTORS}(n) = c_0 + \sum_{i=0}^{\sqrt{n}-1} T_\texttt{while}(n,p,i) + c_1 + c_2,
+T_\texttt{COUNT-PRIME-FACTORS}(n) = c_0 + \sum_{i=0}^{\sqrt{n}-1} T_\texttt{while}(n,p,i) + c_1 + c_2,
 \]
 
 making a huge difference in the asymptotical behaviour of this algorithm --- as we're going to see later.
+
+| Author(s)                | Latest change |
+|:-------------------------|:--------------|
+| [Jamil Osoria Peralta]() | 2025-06-24    |

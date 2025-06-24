@@ -11,10 +11,11 @@ theme:
     - content.code.copy
     - content.code.annotate
     - content.code.select
-    - navigation.expand
+#    - navigation.expand
     - navigation.sections
     - navigation.path
     - toc.integrate
+    - navigation.instant
   palette:
     - scheme: default
       primary: indigo

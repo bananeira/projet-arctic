@@ -45,3 +45,7 @@ But:
 
 So this is bad.
 
+
+| Author(s)                | Latest change |
+|:-------------------------|:--------------|
+| [Jamil Osoria Peralta]() | 2025-06-24    |
