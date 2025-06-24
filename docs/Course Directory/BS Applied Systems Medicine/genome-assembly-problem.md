@@ -185,6 +185,17 @@ This method can handle situations where greedy algorithms struggle, as it takes 
     Furthermore, the edges need to respect multiplicities, making De-Bruijn-Graphs Multigraphs.
     This graph effectively breaks down the problem of sequence assembly into a set of smaller pieces that can be more easily reconstructed.
 
+    In general, a De-Bruijn-Graph looks like
+
+    $$
+    \begin{align*}
+        \mathcal{M}_\mathrm{DBG} = \left(\bigcup_\ell\mathrm{M}[k - 1, \ell], E := \{(u_{k-1}, v_{k-1}) \in \mathrm{M}[k-1, \ell] \times \mathrm{M}[k-1, \ell] \mid u_{k-1}, v_{k-1} \in \mathrm{M}[k-1, \ell] \in \mathrm{M}[k]_\ell\}\right), \quad k \in \NN_{\geq 3}
+    \end{align*}
+    $$
+
+    where $\mathrm{M}[k]$ is defined as the multiset of all $k$-mers that we're starting with, and $\mathrm{M}[k-1, \ell]$ the $k-1$-mers induced by the $\ell$-th $k$-mer $\mathrm{M}[k]_\ell$.
+    $E$ is a multiset.
+
 Continuing with the example reads from the previous example and a $k = 3$, the $k-1$ prefix and suffix of each $k$-mer will then form the nodes of the graph, with directed edges connecting them.
 
 ```mermaid
