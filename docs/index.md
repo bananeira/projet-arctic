@@ -10,7 +10,7 @@ The goal is to create an evolving resource that fosters learning, collaboration,
 
 ## Get Involved & Contact
 
-**ARCTIc** is created *by students, for students* --- initiated by Jamil Osoria Peralta and Felix Eberle, Computer Science students at the University of Hamburg, with a passion for formal methods and collaborative learning.
+**ARCTIc** is created *by students, for students* --- initiated by Jamil Osoria Peralta and Felix Eberle, Computer Science students at the University of Hamburg, with a great interest for formal methods and collaborative learning.
 
 If you'd like to contribute your own materials, suggest improvements, or get involved with the platform, please refer to the [contribution information](/Contribute/00-writing-guidelines/)!
 
