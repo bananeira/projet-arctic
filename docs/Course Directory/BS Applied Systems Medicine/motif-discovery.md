@@ -1,4 +1,4 @@
-# Motif discovery
+# Motif Discovery
 
 !!! note "Motif"
 
@@ -20,7 +20,7 @@ Find a pattern $M$, such that in each sequence there is a substring that can be 
 
     for the Motif `TCCTAGGCAGT`.
 
-### Bruteforce approach
+### Bruteforce Approach
 
 - Let $S = S_1..S_m$ be a set of sequences
 - Let $\mathrm{d}(S_i, M)$ be the minimal edit distance between the sequence $S_i$ and $M$ be a pattern.

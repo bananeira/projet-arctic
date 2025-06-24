@@ -1,6 +1,6 @@
-# Description of Algorithms
+# Description and Evaluation of Algorithms
 
-## Establishing basic terms and concepts
+## Establishing Basic Terms and Concepts
 
 Firstly, we need to characterise the term algorithm and related terms.
 
@@ -51,7 +51,7 @@ COUNT-PRIME-FACTORS( n \in \NN )
 
 Now we have our first pseudocode algorithm that we will stick to for the next few sections.
 
-## Analysis of algorithms
+## Analysis of Algorithms
 
 It's almost obvious that we can't just write algorithms without knowing whether/how they behave the way we want them to.
 Especially when they're more complex.
@@ -61,7 +61,7 @@ In this section, we will discover the fundamental aspects of analysing algorithm
 Firstly, we need to prove that the algorithm we have just proposed yields the expected results **for any instance**.
 Then, to conclude the analysis, we will check the runtime, as this is a crucial factor to consider when deploying algorithms in practical use.
 
-### Correctness of an algorithm
+### Correctness of an Algorithm
 
 Sometimes, straight forward approaches for simple problems can be directly evaluated and don't need a separate proof of correctness.
 Take, for example
@@ -185,3 +185,153 @@ In any given iteration, $i \in \NN$, `result` reflects the average of the subfie
 
 If you have understood what is happening here, you're doing very well.
 Don't be afraid to spend some more minutes in understanding this concept, as it's a crucial tool for later in this script (and in probably any exam you will be writing about this topic).
+
+In the meantime, you've probably asked yourself, "does this algorithm achieve an asymptotically optimal time complexity?"
+
+So why don't we dive into the runtime analysis for algorithms to answer this question?
+
+### Runtime Analysis
+
+For the time complexity analysis of an algorithm, we can't, of course, consider every possible combination of hardware components and neglect the effects of any other running processes.
+So let's firstly do some simplifications and build an _idealised computational model_ to unify our understanding of runtime.
+
+!!! note "Idealised Computational Model"
+
+    In our further analysis, we assume the following
+
+    - Each basic arithmetic operation (+, -, \cdot, /) costs exactly **one unit** of time
+    - Each basic comparison operation (such as <, >, =) costs exactly **one unit** of time
+    - Each modulo operation costs exactly **one unit** of time
+    - Each random access of a memory location (read or write) costs exactly **one unit** of time
+    - Control structures like `if`-, `for`-, and `while`-statements are not counted separately; their cost comes solely from the basic operations needed to evaluate conditions and execute body statements.
+
+!!! warning "A humble request"
+
+    Please make sure to never confuse `if`-statements with loops --- at least from now on.
+
+Now that we've built our idealised computational model, we can proceed to apply what we've learned from it to our algorithm `COUNT-PRIME-FACTORS`.
+Bear with me for a moment, since this analysis will not be as trivial as it looks like --- but trivial enough.
+
+!!! note "_Worst-case runtime_ analysis of `COUNT-PRIME-FACTORS`"
+
+    `COUNT-PRIME-FACTORS` correctly solves the problem in roughly $c + c \: \sum_{i=0}^{n-1} e_i$ time units, where $e_i \in \mathbf{e}$ is defined later on.
+
+We will approach this proof in a more intuitive way to show the idea of how one can determine the runtime of a function.
+
+Here is a friendly reminder of how `COUNT-PRIME-FACTORS` looked like (the following code block).
+
+```
+COUNT-PRIME-FACTORS( n \in \NN )
+    \ell <_ 0
+    for p <_ 2 to n do
+        while n mod p = 0 do
+            n <_ n / p
+            \ell <_ \ell + 1
+    return \ell
+```
+
+!!! success "Proof of the worst-case runtime of `COUNT-PRIME-FACTORS`, proposed above"
+    
+    ```
+    COUNT-PRIME-FACTORS( n \in \NN )
+        \ell <_ 0
+        for p <_ 2 to n do
+            while n mod p = 0 do
+                <while>
+        return \ell
+    ```
+
+    The assertion of `\ell <_ 0` and `return \ell` are constant time statements --- costing us exactly one unit of time each.
+    
+    Now consider the outer loop.
+    We start with `2`, counting to `n`, executing the body $n - 1$ times and an extra check to see whether the stopping criterion is met.
+    
+    And if we consider the constant time statements as some $c_i \in \NN_0$, we can write down the interim result as
+
+    \[
+        T_\texttt{COUNT-PRIME-FACTORS}(n) = c_0 + \sum_{i=0}^{n-1} T_\texttt{while}(n,p,i) + c_1 + c_2
+    \]
+    
+    The missing part is the time complexity of the `while`-loop.
+    For that, let's take a look at the prime factorisation of a natural number $N$:
+    
+    \[
+        N = \prod_{i=1}^m \mathbf{p}^\mathbf{e}, \mathbf{p} := (p_1..p_m) \in \PP^m, \mathbf{e} := (e_1..e^m) \in \NN^m_0
+    \]
+
+    but we can simplify it to
+
+    \[
+        N = \prod_{i=1}^N \mathbf{p}^\mathbf{e}, \mathbf{p} := (p_1..p_m) \in \NN^N, \mathbf{e} := (e_1..e^N) \in \NN^N_0
+    \]
+
+    since natural numbers that are not a prime number can just be assigned the exponent $0$.
+    This definition is what we're working with in our function, as these numbers will not be detected as divisors, if we work our way up from the bottom.
+
+    So for each $i$-th `for`-iteration, we need exactly $e_i$ `while`-iterations, each time dividing $n$ by $p_i$ and incrementing the counter $\ell$.
+    
+    Each iteration of the `while`-loop consists of
+    
+    - one `modulo`-operation check: $c_0$,
+    - one `divide`-operation: $c_1$,
+    - one `add`-operation: $c_2$.
+
+    Therefore, each execution of the `while`-body costs us $3$ units of time.
+    In total --- across all prime factors --- the cost of all `while`-loops combined is given by
+
+    \[
+        T_\texttt{while}(n,p,i) = \sum_{j\in 1..e_i} (c_0 + c_1 + c_2)
+    \]
+
+    Combining this with our runtime $T_\texttt{COUNT-PRIME-FACTORS}(n)$, we get
+    
+    $$
+        \begin{align*}
+            T_\texttt{COUNT-PRIME-FACTORS}(n) & = c_0 + \sum_{i=0}^{n-1} T_\texttt{while}(n,p,i) + c_1 + c_2 \\
+            & = c_0 + \sum_{i=0}^{n-1} \left(\sum_{j\in 1..e_i} (c_1 + c_2 + c_3)\right) + c_4 + c_5
+        \end{align*}
+    $$
+
+    (with renamed constants $c_i$).
+    And since we don't differnetiate between different constants for elementary operations and defined them to cost exactly one discrete time unit, we can gather the constants and write
+
+    $$
+        \begin{align*}
+            T_\texttt{COUNT-PRIME-FACTORS}(n) & = c_0 + \sum^{n-1}_{i=0} \left(\sum_{j \in 1..e_i} (c_1 + c_2 + c_3)\right) + c_4 + c_5 \\
+            & = c + \sum^{n-1}_{i=0} \left(c \: \sum_{j \in 1..e_i} 1\right) \\
+            & = c + \sum^{n-1}_{i=0} \left(c \: e_i\right) = c + c \: \sum^{n-1}_{i=0} e_i.
+        \end{align*}
+    $$
+
+If we take an $n$-th look at our problem, we notice the following:
+Let $n,a,b \in \NN$ and assume that $n=a\cdot b$.
+Now, assume that $a \geq \sqrt{n}$.
+Now it must also be true that $b \leq \sqrt{n}$.
+
+Therefore, we only need to check prime factors up to $\sqrt{n}$.
+
+Let's run through the code again and define a new function appropriate to this insight.
+
+```
+COUNT-PRIME-FACTORS_SQRT( n \in \NN )
+    \ell <_ 0
+    for p <_ 2 to n^(1/2) do
+        while n mod p = 0 do
+            n <_ n / p
+            \ell <_ \ell + 1
+    return \ell
+```
+
+This is changing our runtime from
+
+\[
+    T_\texttt{COUNT-PRIME-FACTORS}(n) = c_0 + \sum_{i=0}^{n-1} T_\texttt{while}(n,p,i) + c_1 + c_2
+\]
+
+to
+
+\[
+    T_\texttt{COUNT-PRIME-FACTORS}(n) = c_0 + \sum_{i=0}^{\sqrt{n}-1} T_\texttt{while}(n,p,i) + c_1 + c_2,
+\]
+
+making a huge difference in the asymptotical behaviour of this algorithm --- as we're going to see later.

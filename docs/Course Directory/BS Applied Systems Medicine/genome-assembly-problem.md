@@ -1,4 +1,4 @@
-# Assembly problems
+# Assembly Problems
 
 Imagine you have found a set of reads from a sample (like small prokaryotic genomes) that you've collected _somewhere_.
 This set of reads stems from some unknown sequence that has decayed due to degradation over time, sequencing errors, or fragmentation during the extraction process.
@@ -40,7 +40,7 @@ In this section, we will look at two graph-based approaches that perform a _De n
     These prefixes and suffixes are crucial when constructing **Graphs**, where the overlaps are computed via $k-1$-mers.
     
 
-## Simple greedy algorithm
+## Simple Greedy Algorithm
 
 !!! example "Example reads"
 

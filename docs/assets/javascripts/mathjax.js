@@ -9,6 +9,7 @@ window.MathJax = {
             ZZ: '{\\mathbb Z}',
             RR: '{\\mathbb R}',
             QQ: '{\\mathbb Q}',
+            PP: '{\\mathbb P}',
             bigO: '{\\mathcal O}',
             smallO: '{o}',
             bigOmega: '{\\Omega}',
