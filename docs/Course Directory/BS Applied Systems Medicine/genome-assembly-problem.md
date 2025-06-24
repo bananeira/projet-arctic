@@ -185,8 +185,7 @@ This method can handle situations where greedy algorithms struggle, as it takes 
     Furthermore, the edges need to respect multiplicities, making De-Bruijn-Graphs Multigraphs.
     This graph effectively breaks down the problem of sequence assembly into a set of smaller pieces that can be more easily reconstructed.
 
-Let's consider the reads `ACCG`, `CCGA`, `CGAA`, `GAAC` and a $k = 3$.
-The $k-1$ prefix and suffix of each $k$-mer will then form the nodes of the graph, with directed edges connecting them.
+Continuing with the example reads from the previous example and a $k = 3$, the $k-1$ prefix and suffix of each $k$-mer will then form the nodes of the graph, with directed edges connecting them.
 
 ```mermaid
     graph LR
